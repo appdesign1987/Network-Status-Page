@@ -25,16 +25,16 @@ else:
 endif;
 
 $services = array(
-	new service("Plex", 32400, "http://d4rk.co:32400/web/index.html#!/dashboard"),
-	//new service("pfSense", 8082, "http://d4rk.co:8082", "d4rk.co"),
-	new serviceSAB($sabTitle, 8080, "http://d4rk.co:8080", "10.0.1.5"),
-	new service("SickBeard", 8081, "http://d4rk.co:8081", "10.0.1.3"),
-	new service("CouchPotato", 5050, "http://d4rk.co:5050", "10.0.1.3"),
-	new service("Transmission", 9091, "http://d4rk.co:9091", "10.0.1.5"),
-	new service("iTunes Server", 3689, "http://www.apple.com/itunes/"),
+	new service("Plex", 32400, "http://couch.jeroenvd.nl:32400"),
+	//new service("pfSense", 8082, "http://:8082", "d4rk.co"),
+	new serviceSAB($sabTitle, 8080, "http://couch.jeroenvd.nl:8080", "192.168.88.55"),
+	new service("Deluge", 8112, "http://couch.jeroenvd.nl:8112", "1291.168.88.55"),
+	new service("CouchPotato", 5050, "http://couch.jeroenvd.nl:5050", "192.168.88.55"),
+	new service("Proxmox", 8006, "http://192.168.88.81:8006", "192.168.88.81"),
+	new service("ShipYard", 8080, "http://192.168.88.52:8080"),
 	//new service("Starbound Server", 21025, "http://playstarbound.com"),
-	new serviceMinecraft("Vanilla", 25564, "http://minecraft.d4rk.co", "mc.d4rk.co"),
-	new serviceMinecraft("Bevo Tech Pack", 25565, "http://minecraft.d4rk.co")
+	//new serviceMinecraft("Vanilla", 25564, "http://minecraft.d4rk.co", "mc.d4rk.co"),
+	//new serviceMinecraft("Bevo Tech Pack", 25565, "http://minecraft.d4rk.co")
 );
 ?>
 <table class="center">

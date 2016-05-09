@@ -7,7 +7,7 @@
 	$clientIP = get_client_ip();
 	if($weather_always_display):
 		makeWeatherSidebar();
-	elseif($clientIP == '10.0.1.1'):
+	elseif($clientIP == '192.168'):
 		makeWeatherSidebar();
 	else:
 		echo '<ul class="nav nav-pills nav-stacked">';

@@ -5,10 +5,12 @@ $config_path = '/home/jeroen/config.ini'; //path to config file, recommend you p
 Ini_Set( 'display_errors', false);
 include '../../init.php';
 include 'lib/phpseclib0.3.5/Net/SSH2.php';
+require_once 'MinecraftServerStatus.class.php';
 $config = parse_ini_file($config_path);
 
 // Import variables from config file
 // Network Details
+$local_pfsense_ip = $config['local_pfsense_ip'];
 $local_server_ip = $config['local_server_ip'];
 $wan_domain = $config['wan_domain'];
 $wan1_ip = $config['wan1_ip'];
@@ -17,11 +19,11 @@ $ping_ip = $config['ping_ip'];
 $plex_server_ip = $config['plex_server_ip'];
 $plex_port = $config['plex_port'];
 // Credentials
-$pfSense_username = $config['pfSense_username'];
-$pfSense_password = $config['pfSense_password'];
+//$pfSense_username = $config['pfSense_username'];
+//$pfSense_password = $config['pfSense_password'];
 $plex_username = $config['plex_username'];
 $plex_password = $config['plex_password'];
-$trakt_username = $config['trakt_username'];
+//$trakt_username = $config['trakt_username'];
 // API Keys
 $forecast_api = $config['forecast_api'];
 $sabnzbd_api = $config['sabnzbd_api'];
@@ -129,7 +131,7 @@ function makeDiskBars()
 {
 	// For special drives like my Drobos I have to set the total disk space manually.
 	// That is why you see the total space in bytes.
-	printDiskBar(getDiskspace("/"), "SSD", disk_free_space("/"), disk_total_space("/"));
+	printDiskBar(getDiskspace("/"), "Localdisk", disk_free_space("/"), disk_total_space("/"));
 	printDiskBar(getDiskspace("/Volumes/Time Machine"), "Time Machine", disk_free_space("/Volumes/Time Machine"), disk_total_space("/Volumes/Time Machine"));
 	printDiskBar(getDiskspace("/Volumes/Isengard"), "Isengard", disk_free_space("/Volumes/Isengard"), disk_total_space("/Volumes/Isengard"));
 	printDiskBar(getDiskspace("/Volumes/WD2.2"), "Minas Tirith", disk_free_space("/Volumes/WD2.2"), disk_total_space("/Volumes/WD2.2"));
