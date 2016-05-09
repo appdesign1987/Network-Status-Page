@@ -5,7 +5,7 @@
 
 	include 'init.php';
 	include ROOT_DIR . '/assets/php/Mobile_Detect.php';
-	include_once(ROOT_DIR . "/assets/php/analyticstracking.php");
+	//include_once(ROOT_DIR . "/assets/php/analyticstracking.php");
 
 	$detect = new Mobile_Detect;
 ?>
@@ -291,8 +291,8 @@
 	        	var $now_playing_refresh = $('#now_playing');
 
 	        	// Load external php files & assign variables
-	        	$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-	        	$now_playing_refresh.load("assets/php/now_playing_ajax.php");
+	        	//$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
+	        	//$now_playing_refresh.load("assets/php/now_playing_ajax.php");
 	        	$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 	        	$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
 	        	$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
@@ -353,8 +353,8 @@
 				                        localStorage["resourcemodified"] = xhr.getResponseHeader("Last-Modified");
 				                        console.log("Updating our cache and refreshing appropriate divs.");
 				                        $left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
-				                        $now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-			        			   		$now_playing_refresh.load("assets/php/now_playing_ajax.php");
+	//			                        $now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
+	//		        			   		$now_playing_refresh.load("assets/php/now_playing_ajax.php");
 			        			   		$transcodeSessions.load("assets/php/transcode_sessions_ajax.php");
 				                    }                    
 				               })
@@ -362,34 +362,34 @@
 				}, 5000); // 5 seconds
 
 				// Change the size of the now playing div to match the client size
-				function doResizeNowPlaying() {
-					var height = 0;
-					var body = window.document.body;
-					if (window.innerHeight) {
-						height = window.innerHeight;
-					} else if (body.parentElement.clientHeight) {
-						height = body.parentElement.clientHeight;
-					} else if (body && body.clientHeight) {
-						height = body.clientHeight;
-					}
-					now_playing.style.height = ((height - now_playing.offsetTop) + "px");
-					console.log("Div resize complete. New size is: " + height);
+	//			function doResizeNowPlaying() {
+	//				var height = 0;
+	//				var body = window.document.body;
+	//				if (window.innerHeight) {
+	//					height = window.innerHeight;
+	//				} else if (body.parentElement.clientHeight) {
+	//					height = body.parentElement.clientHeight;
+	//				} else if (body && body.clientHeight) {
+	//					height = body.clientHeight;
+	//				}
+	//				now_playing.style.height = ((height - now_playing.offsetTop) + "px");
+	//				console.log("Div resize complete. New size is: " + height);
 				};
 				// Detect if we are on a mobile device, if we aren't resize the now playing div using doResizeNowPlaying()
-				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+//				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					// some code..
-				} else {
-					var resizeTimer;
-					$(window).resize(function() {
-						clearTimeout(resizeTimer);
-						resizeTimer = setTimeout(doResizeNowPlaying, 100);
+//				} else {
+//					var resizeTimer;
+//					$(window).resize(function() {
+//						clearTimeout(resizeTimer);
+//						resizeTimer = setTimeout(doResizeNowPlaying, 100);
 					});
-					// Resize the now playing div 5 seconds after page load
-					$(function(){
-	   					clearTimeout(resizeTimer);
-						resizeTimer = setTimeout(doResizeNowPlaying, 5000);
-					});
-				}
+//					// Resize the now playing div 5 seconds after page load
+//					$(function(){
+//	   					clearTimeout(resizeTimer);
+//						resizeTimer = setTimeout(doResizeNowPlaying, 5000);
+//					});
+//				}
 		    	});
 		})(jQuery);
 		</script>
