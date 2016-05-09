@@ -862,11 +862,11 @@ function makeWeatherSidebar()
 	} else {
 		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: Calm</h4>';
 	}
-	echo '<h4 class="exoregular">Next Hour</h4>';
+	echo '<h4 class="exoregular">Volgend uur</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$minutelySummary.'</h5>';
-	echo '<h4 class="exoregular">Next 24 Hours</h4>';
+	echo '<h4 class="exoregular">Volgende 24 uur</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
-	echo '<h4 class="exoregular">The Sun</h4>';
+	echo '<h4 class="exoregular">De zon</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$rises.' at '.date('g:i A', $sunriseTime).'</h5>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$sets.' at '.date('g:i A', $sunsetTime).'</h5>';
 	echo '<p class="text-right no-link-color" style="margin-bottom:-10px"><small><a href="http://forecast.io/#/f/'.$weather_lat.','.$weather_long.'">Forecast.io</a></small></p> ';
