@@ -1,6 +1,6 @@
 <?php
 
-$config_path = '/Users/zeus/Sites/config.ini'; //path to config file, recommend you place it outside of web root
+$config_path = '/home/jeroen/Network-Status-Page/config.ini'; //path to config file, recommend you place it outside of web root
 
 Ini_Set( 'display_errors', false);
 include '../../init.php';
