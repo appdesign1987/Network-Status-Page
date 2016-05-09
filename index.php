@@ -291,8 +291,8 @@
 	        	var $now_playing_refresh = $('#now_playing');
 
 	        	// Load external php files & assign variables
-	        	//$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
-	        	//$now_playing_refresh.load("assets/php/now_playing_ajax.php");
+	        	$now_playing_title_refresh.load("assets/php/now_playing_title_ajax.php");
+	        	$now_playing_refresh.load("assets/php/now_playing_ajax.php");
 	        	$plex_check_refresh.load('assets/php/plex_check_ajax.php');
 	        	$left_column_top_refresh.load('assets/php/left_column_top_ajax.php');
 	        	$bandwidth_refresh.load("assets/php/bandwidth_ajax.php");
