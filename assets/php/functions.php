@@ -5,13 +5,9 @@ $config_path = '/home/jeroen/Network-Status-Page/config.ini'; //path to config f
 Ini_Set( 'display_errors', false);
 include '../../init.php';
 include 'lib/phpseclib0.3.5/Net/SSH2.php';
-require_once 'MinecraftServerStatus.class.php';
 $config = parse_ini_file($config_path);
-
 // Import variables from config file
-// Network Details
-$local_pfsense_ip = $config['local_pfsense_ip'];
-$local_server_ip = $config['local_server_ip'];
+// Network Details];
 $wan_domain = $config['wan_domain'];
 $wan1_ip = $config['wan1_ip'];
 $wan2_ip = $config['wan2_ip'];
@@ -19,11 +15,8 @@ $ping_ip = $config['ping_ip'];
 $plex_server_ip = $config['plex_server_ip'];
 $plex_port = $config['plex_port'];
 // Credentials
-$pfSense_username = $config['pfSense_username'];
-$pfSense_password = $config['pfSense_password'];
 $plex_username = $config['plex_username'];
 $plex_password = $config['plex_password'];
-$trakt_username = $config['trakt_username'];
 // API Keys
 $forecast_api = $config['forecast_api'];
 $sabnzbd_api = $config['sabnzbd_api'];
@@ -52,7 +45,7 @@ if (file_exists($plexTokenCache) && (filemtime($plexTokenCache) > (time() - 60 *
 }
 
 // Calculate server load
-if (strpos(strtolower(PHP_OS), "Darwin") === false)
+if (strpos(strtolower(PHP_OS), "Linux") === false)
 	$loads = sys_getloadavg();
 else
 	$loads = Array(0.55,0.7,1);
@@ -313,12 +306,10 @@ function printTotalDiskBar($dup, $name = "", $dsu, $dts)
 
 function ping()
 {
-	global $local_pfsense_ip;
 	global $ping_ip;
 
 	$clientIP = get_client_ip();
 	//$pingIP = '8.8.8.8';
-	if($clientIP != $local_pfsense_ip) {
 		$pingIP = $clientIP;
 	}
 	$terminal_output = shell_exec('ping -c 5 -q '.$ping_ip);
@@ -339,12 +330,11 @@ function ping()
 function getNetwork()
 {
 	// It should be noted that this function is designed specifically for getting the local / wan name for Plex.
-	global $local_pfsense_ip;
 	global $wan_domain;
 	global $plex_server_ip;
 
 	$clientIP = get_client_ip();
-	if($clientIP=='10.0.1.1'):
+	if($clientIP=='192.168'):
 		$network='http://'.$plex_server_ip;
 	else:
 		$network='http://'.$wan_domain;
@@ -424,38 +414,6 @@ function makeRecenlyViewed()
 	$network = getNetwork();
 	$clientIP = get_client_ip();
 	$plexSessionXML = simplexml_load_file($network.':'.$plex_port.'/status/sessions');
-	$trakt_url = 'http://trakt.tv/user/'.$trakt_username.'/widgets/watched/all-tvthumb.jpg';
-	$traktThumb = '/Users/zeus/Sites/d4rk.co/assets/caches/thumbnails/all-tvthumb.jpg';
-
-	echo '<div class="col-md-12">';
-	echo '<a href="http://trakt.tv/user/'.$trakt_username.'" class="thumbnail">';
-	if (file_exists($traktThumb) && (filemtime($traktThumb) > (time() - 60 * 15))) {
-		// Trakt image is less than 15 minutes old.
-		// Don't refresh the image, just use the file as-is.
-		echo '<img src="'.$network.'/assets/caches/thumbnails/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-	} else {
-		// Either file doesn't exist or our cache is out of date,
-		// so check if the server has different data,
-		// if it does, load the data from our remote server and also save it over our cache for next time.
-		$thumbFromTrakt_md5 = md5_file($trakt_url);
-		$traktThumb_md5 = md5_file($traktThumb);
-		if ($thumbFromTrakt_md5 === $traktThumb_md5) {
-			echo '<img src="'.$network.'/assets/caches/thumbnails/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-		} else {
-			$thumbFromTrakt = file_get_contents($trakt_url);
-			file_put_contents($traktThumb, $thumbFromTrakt, LOCK_EX);
-			echo '<img src="'.$network.'/assets/caches/thumbnails/all-tvthumb.jpg" alt="trakt.tv" class="img-responsive"></a>';
-
-		}
-	}
-	// This checks to see if you are inside your local network. If you are it gives you the forecast as well.
-	if($clientIP == $local_pfsense_ip && count($plexSessionXML->Video) == 0) {
-		echo '<hr>';
-		echo '<h1 class="exoextralight" style="margin-top:5px;">';
-		echo 'Forecast</h1>';
-		echo '<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat='.$weather_lat.'&lon='.$weather_long.'&name='.$weather_name.'"> </iframe>';
-	}
-	echo '</div>';
 }
 
 function makeRecenlyReleased()
