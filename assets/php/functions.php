@@ -810,9 +810,9 @@ function makeWeatherSidebar()
 	$sunsetTime = $currentForecast->daily->data[0]->sunsetTime;
 
 	if ($sunriseTime > time()) {
-		$rises = 'Rises';
+		$rises = 'Zon op';
 	} else {
-		$rises = 'Rose';
+		$rises = 'Zon onder';
 	}
 
 	if ($sunsetTime > time()) {
@@ -858,7 +858,7 @@ function makeWeatherSidebar()
 	echo '</ul>';
 	if ($currentWindSpeed > 0) {
 		$direction = getDir($currentWindBearing);
-		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' mph from the '.$direction.'</h4>';
+		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' kmh from the '.$direction.'</h4>';
 	} else {
 		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: Calm</h4>';
 	}
