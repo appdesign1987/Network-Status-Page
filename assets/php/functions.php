@@ -784,7 +784,7 @@ function limitWords($string, $word_limit)
 
 function getDir($b)
 {
-   $dirs = array('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N');
+   $dirs = array('N', 'Noord-Oost', 'O', 'SE', 'S', 'SW', 'W', 'NW', 'N');
    return $dirs[round($b/45)];
 }
 
@@ -860,7 +860,7 @@ function makeWeatherSidebar()
 	echo '</ul>';
 	if ($currentWindSpeed > 0) {
 		$direction = getDir($currentWindBearing);
-		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' kmh van uit het'.$direction.'</h4>';
+		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' kmh van uit het' .$direction.'</h4>';
 	} else {
 		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: Calm</h4>';
 	}
