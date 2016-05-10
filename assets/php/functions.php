@@ -303,7 +303,38 @@ function printTotalDiskBar($dup, $name = "", $dsu, $dts)
 	echo '</div>';
 }
 
+//Network stuff
 function ping()
+{
+        $pingIP = '8.8.8.8';
+        $avgPing = round(shell_exec("ping -c 5 " . $pingIP . " | grep dev | awk -F '/' '{print $5}'" ));
+        return $avgPing;
+}
+function getNetwork() //returns wan_domain if you are outside your network, and local_server_ip if you are within the network
+{
+	global $local_server_ip;
+	global $local_pfsense_ip;
+	global $wan_domain;
+	$clientIP = get_client_ip();
+	if(preg_match("/192.168.88.*/",$clientIP))
+		$network='http://'.$local_server_ip;
+	else
+		$network=$wan_domain;
+	return $network;
+}
+function get_client_ip() 
+{
+	if ( isset($_SERVER["REMOTE_ADDR"])) { 
+		$ipaddress = $_SERVER["REMOTE_ADDR"];
+	}else if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+		$ipaddress = $_SERVER["HTTP_X_FORWARDED_FOR"];
+	}else if (isset($_SERVER["HTTP_CLIENT_IP"])) {
+		$ipaddress = $_SERVER["HTTP_CLIENT_IP"];
+	} 
+	return $ipaddress;
+}
+
+/*function ping()
 {
 	global $local_pfsense_ip;
 	global $ping_ip;
@@ -354,7 +385,7 @@ function get_client_ip()
 		$ipaddress = $_SERVER["HTTP_CLIENT_IP"];
 	} 
 	return $ipaddress;
-}
+}*/
 
 function sabSpeedAdjuster()
 {
