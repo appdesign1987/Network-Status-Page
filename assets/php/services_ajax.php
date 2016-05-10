@@ -5,7 +5,7 @@
 	include ROOT_DIR . '/assets/php/functions.php';
 	include("service.class.php");
 	include("serviceSAB.class.php");
-	include("serviceMinecraft.class.php");
+	//include("serviceMinecraft.class.php");
 ?>
 <html lang="en">
 	<script>
