@@ -814,11 +814,11 @@ function makeWeatherSidebar()
 	if ($sunriseTime > time()) {
 		$rises = 'Zon gaat op';
 	} else {
-		$rises = 'Zon gaat onder';
+		$rises = 'Zon gaat op';
 	}
 
 	if ($sunsetTime > time()) {
-		$sets = 'Zon gaat op';
+		$sets = 'Zon gaat onder';
 	} else {
 		$sets = 'Zon gaat onder';
 	}
