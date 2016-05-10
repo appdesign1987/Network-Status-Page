@@ -26,11 +26,11 @@ endif;
 
 $services = array(
 	new service("Plex", 32400, "http://couch.jeroenvd.nl:32400"),
-	//new service("pfSense", 8082, "http://:8082", "d4rk.co"),
+	new service("pfSense", 8082, "http://192.168.88.49:8082", "pfsense.jeroenvd.nl"),
 	new serviceSAB($sabTitle, 8080, "http://couch.jeroenvd.nl:8080", "192.168.88.55"),
 	new service("Deluge", 8112, "http://couch.jeroenvd.nl:8112", "1291.168.88.55"),
 	new service("CouchPotato", 5050, "http://couch.jeroenvd.nl:5050", "192.168.88.55"),
-	new service("Proxmox", 8006, "http://192.168.88.81:8006", "192.168.88.81"),
+	new service("Proxmox", 8006, "https://192.168.88.81:8006", "192.168.88.81"),
 	new service("ShipYard", 8080, "http://192.168.88.52:8080"),
 	//new service("Starbound Server", 21025, "http://playstarbound.com"),
 	//new serviceMinecraft("Vanilla", 25564, "http://minecraft.d4rk.co", "mc.d4rk.co"),
