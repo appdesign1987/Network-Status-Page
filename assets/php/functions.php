@@ -812,15 +812,15 @@ function makeWeatherSidebar()
 	$sunsetTime = $currentForecast->daily->data[0]->sunsetTime;
 
 	if ($sunriseTime > time()) {
-		$rises = 'Zon onder';
+		$rises = 'Zon gaat onder';
 	} else {
 		$rises = 'Onder';
 	}
 
 	if ($sunsetTime > time()) {
-		$sets = 'Zon onder';
+		$sets = 'Zon gaat op';
 	} else {
-		$sets = 'Onder';
+		$sets = 'Op';
 	}
 
 	// If there are alerts, make the alerts variables
