@@ -814,7 +814,7 @@ function makeWeatherSidebar()
 	if ($sunriseTime > time()) {
 		$rises = 'Zon onder';
 	} else {
-		$rises = 'Zon op';
+		$rises = 'Onder';
 	}
 
 	if ($sunsetTime > time()) {
