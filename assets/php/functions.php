@@ -784,7 +784,7 @@ function limitWords($string, $word_limit)
 
 function getDir($b)
 {
-   $dirs = array('N', 'Noord-Oost', 'O', 'SE', 'S', 'SW', 'W', 'NW', 'N');
+   $dirs = array('N', 'NO', 'O', 'SE', 'S', 'SW', 'W', 'NW', 'N');
    return $dirs[round($b/45)];
 }
 
@@ -818,9 +818,9 @@ function makeWeatherSidebar()
 	}
 
 	if ($sunsetTime > time()) {
-		$sets = 'Zon gaat onder';
-	} else {
 		$sets = 'Zon gaat op';
+	} else {
+		$sets = 'Zon gaat onder';
 	}
 
 	// If there are alerts, make the alerts variables
