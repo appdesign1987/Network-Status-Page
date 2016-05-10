@@ -793,7 +793,8 @@ function makeWeatherSidebar()
 	global $forecast_api;
 	global $weather_lat;
 	global $weather_long;
-	$forecastExcludes = '?exclude=flags'; // Take a look at https://developer.forecast.io/docs/v2 to configure your weather information.
+	//$forecastExcludes = '?exclude=flags'; // Take a look at https://developer.forecast.io/docs/v2 to configure your weather information.
+	$forecastExcludes = '?units=si'; // Take a look at https://developer.forecast.io/docs/v2 to configure your weather information.
 	$forecastLang = 'nl'; // Set summary language to NL
 	$forecastUnits = 'summary'; // Set summary to celsius
 	$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$weather_lat.','.$weather_long.$forecastExcludes));
