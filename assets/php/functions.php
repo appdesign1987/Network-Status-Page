@@ -860,14 +860,14 @@ function makeWeatherSidebar()
 	echo '</ul>';
 	if ($currentWindSpeed > 0) {
 		$direction = getDir($currentWindBearing);
-		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' kmh from the '.$direction.'</h4>';
+		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: '.$currentWindSpeed.' kmh van uit '.$direction.'</h4>';
 	} else {
 		echo '<h4 class="exoextralight" style="margin-top:0px">Wind: Calm</h4>';
 	}
-	echo '<h4 class="exoregular">Volgend uur</h4>';
-	echo '<h5 class="exoextralight" style="margin-top:10px">'.$minutelySummary.'</h5>';
-	echo '<h4 class="exoregular">Volgende 24 uur</h4>';
-	echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
+	//echo '<h4 class="exoregular">Volgend uur</h4>';
+	//echo '<h5 class="exoextralight" style="margin-top:10px">'.$minutelySummary.'</h5>';
+	//echo '<h4 class="exoregular">Volgende 24 uur</h4>';
+	//echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
 	echo '<h4 class="exoregular">De zon</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$rises.' om '.date('G:i', $sunriseTime).'</h5>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$sets.' om '.date('G:i', $sunsetTime).'</h5>';
