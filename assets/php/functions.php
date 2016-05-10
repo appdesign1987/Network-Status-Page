@@ -812,9 +812,9 @@ function makeWeatherSidebar()
 	$sunsetTime = $currentForecast->daily->data[0]->sunsetTime;
 
 	if ($sunriseTime > time()) {
-		$rises = 'Zon op';
-	} else {
 		$rises = 'Zon onder';
+	} else {
+		$rises = 'Zon op';
 	}
 
 	if ($sunsetTime > time()) {
@@ -869,8 +869,8 @@ function makeWeatherSidebar()
 	echo '<h4 class="exoregular">Volgende 24 uur</h4>';
 	echo '<h5 class="exoextralight" style="margin-top:10px">'.$hourlySummary.'</h5>';
 	echo '<h4 class="exoregular">De zon</h4>';
-	echo '<h5 class="exoextralight" style="margin-top:10px">'.$rises.' at '.date('g:i A', $sunriseTime).'</h5>';
-	echo '<h5 class="exoextralight" style="margin-top:10px">'.$sets.' at '.date('g:i A', $sunsetTime).'</h5>';
+	echo '<h5 class="exoextralight" style="margin-top:10px">'.$rises.' om '.date('g:i A', $sunriseTime).'</h5>';
+	echo '<h5 class="exoextralight" style="margin-top:10px">'.$sets.' om '.date('g:i A', $sunsetTime).'</h5>';
 	echo '<p class="text-right no-link-color" style="margin-bottom:-10px"><small><a href="http://forecast.io/#/f/'.$weather_lat.','.$weather_long.'">Forecast.io</a></small></p> ';
 }
 
