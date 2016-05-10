@@ -818,9 +818,9 @@ function makeWeatherSidebar()
 	}
 
 	if ($sunsetTime > time()) {
-		$sets = 'Sets';
+		$sets = 'Zon onder';
 	} else {
-		$sets = 'Set';
+		$sets = 'Onder';
 	}
 
 	// If there are alerts, make the alerts variables
