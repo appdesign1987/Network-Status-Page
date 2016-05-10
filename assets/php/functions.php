@@ -797,7 +797,7 @@ function makeWeatherSidebar()
 	$forecastLang = 'nl'; // Set summary language to NL
 	$forecastUnits = 'summary'; // Set summary to celsius
 	//$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$weather_lat.','.$weather_long.$forecastExcludes));
-	$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$weather_lat.','.$weather_long.$forecastUnits));
+	$currentForecast = json_decode(file_get_contents('https://api.forecast.io/forecast/'.$forecast_api.'/'.$weather_lat.','.$weather_long.$forecastLang));
 	$currentSummary = $currentForecast->currently->summary;
 	$currentSummaryIcon = $currentForecast->currently->icon;
 	$currentTemp = round($currentForecast->currently->temperature);
