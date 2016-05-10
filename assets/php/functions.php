@@ -739,18 +739,18 @@ function printBandwidthBar($percent, $name = "", $Mbps)
 	echo '</div>';
 }
 
-function getMinecraftPlayers($port)
-{
-	$server = new MinecraftServerStatus('127.0.0.1',$port);
-	$players = false;
-	$numplayers = 0;
-	if($server->Get('numplayers')>"0") {
-		$players = true;
-		$numplayers = $server->Get('numplayers');
-	}
-
-	return array($players, $numplayers);
-}
+//function getMinecraftPlayers($port)
+//{
+//	$server = new MinecraftServerStatus('127.0.0.1',$port);
+//	$players = false;
+//	$numplayers = 0;
+//	if($server->Get('numplayers')>"0") {
+//		$players = true;
+//		$numplayers = $server->Get('numplayers');
+//	}
+//
+//	return array($players, $numplayers);
+//}
 
 function getPlexToken()
 {
