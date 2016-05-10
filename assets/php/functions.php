@@ -57,11 +57,6 @@ if (strpos(strtolower(PHP_OS), "Darwin") === false)
 else
 	$loads = Array(0.55,0.7,1);
 
-// Set the total disk space
-//$ereborTotalSpace = 8.961019766e+12; // This is in bytes
-//$televisionTotalSpace = 1.196268651e+13; // This is in bytes
-//$television2TotalSpace = 5.959353023e+12; // This is in bytes
-
 // This is if you want to get a % of cpu usage in real time instead of load.
 // After using it for a week I determined that it gave me a lot less information than load does.
 function getCpuUsage()
@@ -137,9 +132,6 @@ function makeDiskBars()
 	printDiskBar(getDiskspace("/Volumes/WD2.2"), "Minas Tirith", disk_free_space("/Volumes/WD2.2"), disk_total_space("/Volumes/WD2.2"));
 	printDiskBar(getDiskspace("/Volumes/WD2.1"), "Minas Morgul", disk_free_space("/Volumes/WD2.1"), disk_total_space("/Volumes/WD2.1"));
 	printDiskBar(getDiskspace("/Volumes/Barad-dur"), "Barad-dûr", disk_free_space("/Volumes/Barad-dur"), disk_total_space("/Volumes/Barad-dur"));
-	//printDiskBar(getDiskspaceErebor("/Volumes/Erebor"), "Erebor", ($GLOBALS['ereborTotalSpace'] - getDiskspaceUsed("/Volumes/Erebor")), $GLOBALS['ereborTotalSpace']);
-	//printDiskBar(getDiskspaceTV1("/Volumes/Television"), "Narya", ($GLOBALS['televisionTotalSpace'] - getDiskspaceUsed("/Volumes/Television")), $GLOBALS['televisionTotalSpace']);
-	//printDiskBar(getDiskspaceTV2("/Volumes/Television 2"), "Nenya", ($GLOBALS['television2TotalSpace'] - getDiskspaceUsed("/Volumes/Television 2")), $GLOBALS['television2TotalSpace']);
 }
 
 function makeRamBars()
@@ -317,7 +309,7 @@ function ping()
 	global $ping_ip;
 
 	$clientIP = get_client_ip();
-	//$pingIP = '8.8.8.8';
+	$pingIP = '8.8.8.8';
 	if($clientIP != $local_pfsense_ip) {
 		$pingIP = $clientIP;
 	}
@@ -344,7 +336,7 @@ function getNetwork()
 	global $plex_server_ip;
 
 	$clientIP = get_client_ip();
-	if($clientIP=='10.0.1.1'):
+	if($clientIP=='192.168.88'):
 		$network='http://'.$plex_server_ip;
 	else:
 		$network='http://'.$wan_domain;
